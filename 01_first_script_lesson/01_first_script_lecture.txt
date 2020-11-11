@@ -1,0 +1,170 @@
+https://ru.hexlet.io/courses/logic
+https://nazva.net/logic_test1/
+
+https://ru.code-basics.com/languages/python
+
+Terminal або на win —> Windows store —> Linux Bash Shell in Windows 10 (cmd / powerShell) OR GIT Bush (git-scm.com)
+vim name_file
+i --> Enter
+write code
+--> esc
+write :wq
+to help read: hexlet vim Зачем использовать vim 
+Зачем использовать vim - https://guides.hexlet.io/vim/
+
+Terminal
+clear
+echo «kuku»
+ls
+pwd
+mkdir
+cd
+cd ..
+ls -a
+ls | grep « .png»
+
+bash
+exit
+
+python —version
+https://ru.code-basics.com/languages/python
+https://ru.hexlet.io/courses/python-basic
+https://ru.hexlet.io/courses/python-setup-environment
+
+GIT
+echo "# codarium" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/pashkovsky/codarium.git
+git push -u origin main
+
+WEB
+http://todomvc.com/examples/emberjs/
+more tools —> developer tools (alt+cmd+I)
+Elements (r-cl: inspect)
+cmd+F: input…, [type= «text»], [id…]
+- пошук по батьку [id…] li
+
+id="new-todo" 
+
+console
+$('[id="new-todo"]')
+$('[id="new-todo»]‘)[0]
+$('[id="new-todo"]').val('relax')
+
+# Емуляція кліка
+Шукаємо «Clear completed» in Elements через правий клік «Інспектор коду»
+id="clear-completed"
+Console
+$('[id="clear-completed"]').trigger('click')
+
+https://ru.hexlet.io/courses/html
+
+http://autotest.how/python
+https://exercism.io/my/tracks
+https://python-intro.readthedocs.io/en/latest/index.html
+
+pycharm
+cmd+/ - розкоментування
+install pip selene 2.0.0a33
+
+I.
+from selene.support.shared import browser # Alt+Enter
+# тому що в __init__.py
+
+browser.open('http://todomvc.com/examples/emberjs/')
+
+II.
+from selene.support.shared.jquery_style import s
+from selene.support.shared import browser
+
+browser.config.hold_browser_open = True
+browser.open('http://todomvc.com/examples/emberjs/')
+
+s('[id="new-todo"]').type('Listen Lesson').press_enter()
+s('[id="new-todo"]').type('Listen Book').press_enter()
+s('[id="new-todo"]').type('Qatch TV').press_enter()
+
+III.
+from selene import have
+from selene.support.shared import browser
+from selene.support.shared.jquery_style import s, ss
+
+browser.config.hold_browser_open = True
+browser.open('http://todomvc.com/examples/emberjs/')
+
+s('[id="new-todo"]').type('Listen Lesson').press_enter()
+s('[id="new-todo"]').type('Listen Book').press_enter()
+s('[id="new-todo"]').type('Watch TV').press_enter()
+ss('[id="todo-list"] li').should(have.exact_texts('Listen Lesson', 'Listen Book', 'Watch TV'))
+
+IV
+from selene import have
+from selene.support.shared import browser
+from selene.support.shared.jquery_style import s, ss
+
+browser.config.hold_browser_open = True
+browser.open('http://todomvc.com/examples/emberjs/')
+
+s('[id="new-todo"]').type('Listen Lesson').press_enter()
+s('[id="new-todo"]').type('Listen Book').press_enter()
+s('[id="new-todo"]').type('Watch TV').press_enter()
+ss('[id="todo-list"] li').should(have.exact_texts('Listen Lesson.', 'Listen Book', 'Watch TV'))
+
+///////
+[WDM] - Current google-chrome version is 86.0.4240
+[WDM] - Get LATEST driver version for 86.0.4240
+ 
+[WDM] - Driver [/Users/mykolapashkovsky/.wdm/drivers/chromedriver/mac64/86.0.4240.22/chromedriver] found in cache
+Traceback (most recent call last):
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/wait.py", line 98, in for_
+    return fn(self._entity)
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/condition.py", line 133, in __call__
+    return self._fn(*args, **kwargs)
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/condition.py", line 106, in fn
+    raise AssertionError(f'actual {result}: {actual}')
+AssertionError: actual visible_texts: ['Listen Lesson', 'Listen Book', 'Watch TV']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/first_script.py", line 11, in <module>
+    ss('[id="todo-list"] li').should(have.exact_texts('Listen Lesson.', 'Listen Book', 'Watch TV'))
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/entity.py", line 1002, in should
+    super().should(condition)
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/entity.py", line 123, in should
+    self.wait.for_(condition)
+  File "/Users/mykolapashkovsky/codarium/FirsdtScript/venv/lib/python3.7/site-packages/selene/core/wait.py", line 117, in for_
+    raise self._hook_failure(failure)
+selene.core.exceptions.TimeoutException: Message: 
+
+Timed out after 4s, while waiting for:
+browser.all(('css selector', '[id="todo-list"] li')).has exact texts ('Listen Lesson.', 'Listen Book', 'Watch TV')
+
+Reason: AssertionError: actual visible_texts: ['Listen Lesson', 'Listen Book', 'Watch TV']
+Screenshot: file:///Users/mykolapashkovsky/.selene/screenshots/1604850315607/1604850315608.png
+PageSource: file:///Users/mykolapashkovsky/.selene/screenshots/1604850315607/1604850315608.html
+/////
+
+Шаблон 3А
+
+from selene import have
+from selene.support.shared import browser
+from selene.support.shared.jquery_style import s, ss
+
+# ARRANGE
+browser.config.hold_browser_open = True
+browser.open('http://todomvc.com/examples/emberjs/')
+
+# ACTS
+s('[id="new-todo"]').type('Listen Lesson').press_enter()
+s('[id="new-todo"]').type('Listen Book').press_enter()
+s('[id="new-todo"]').type('Watch TV').press_enter()
+
+# ASSERT
+ss('[id="todo-list"] li').should(have.exact_texts('Listen Lesson.', 'Listen Book', 'Watch TV'))
+
+
+
