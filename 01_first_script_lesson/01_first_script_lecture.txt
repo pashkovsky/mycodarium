@@ -167,4 +167,9 @@ s('[id="new-todo"]').type('Watch TV').press_enter()
 ss('[id="todo-list"] li').should(have.exact_texts('Listen Lesson.', 'Listen Book', 'Watch TV'))
 
 
+# Мої доповнення
+# GIT
+# https://sys-adm.in/programming/623-git-for-beginning.html
+# https://coderoad.ru/32149999/Git-%D1%81%D0%B0%D0%BC%D1%8B%D0%B5-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B5-%D1%88%D0%B0%D0%B3%D0%B8
+# https://www.ccs.neu.edu/~types/resources/notes/cs4500-git.md
 
